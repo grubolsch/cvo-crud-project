@@ -21,13 +21,7 @@ class OverviewController implements HtmlControllerInterface
     {
         $pdo = new PDO('mysql:host=localhost;dbname=cvo_pdo', 'root', 'root');
 
-        // to be continued
-        $book = new Book('Smurfenland', 'Pero', new \DateTimeImmutable());
-        $book = $book->select($pdo, 1);
-
-        echo '<pre>';
-        var_dump($book);
-        exit;
+        $book = Book::select($pdo, 1);
 
         $template = $this->twig->load('overview.html.twig');
         $template->display(['book' => $book]);
