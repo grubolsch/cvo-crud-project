@@ -20,6 +20,8 @@ class CreateController implements HtmlControllerInterface
         //@todo finish code
 
         $template = $this->twig->load('create.html.twig');
-        $template->display();
+        $template->display([
+            'book' => $_GET['name']
+        ]);
     }
 }
