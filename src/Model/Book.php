@@ -11,7 +11,7 @@ class Book
     private string $author;
     private \DateTimeImmutable $published;
 
-    public function __construct(string $name, string $author, \DateTimeImmutable $published, int $id=null)
+    public function __construct(string $name, string $author, \DateTimeImmutable $published, int $id = null)
     {
         $this->name = $name;
         $this->author = $author;
@@ -19,15 +19,18 @@ class Book
         $this->id = $id;
     }
 
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
     }
 
-    public function getAuthor() {
+    public function getAuthor()
+    {
         return $this->author;
     }
 
@@ -36,21 +39,24 @@ class Book
         return $this->published;
     }
 
-    public function setName(string $name) {
+    public function setName(string $name)
+    {
         $this->name = $name;
     }
 
-    public function setAuthor(string $author) {
+    public function setAuthor(string $author)
+    {
         $this->author = $author;
     }
 
-    public function setPublished(DateTimeImmutable $published) {
+    public function setPublished(DateTimeImmutable $published)
+    {
         $this->published = $published;
     }
 
     public function save(\PDO $pdo)
     {
-        if($this->id) {
+        if ($this->id) {
             $q = $pdo->prepare(
                 'update books set name = :name, author = :author, published = :published where id = :id'
             );
@@ -105,22 +111,21 @@ class Book
     }
 
     public static function selectAll(\PDO $pdo): array
-    {   
+    {
         $q = $pdo->prepare('SELECT * FROM books');
         $q->execute();
         $results = $q->fetchAll();
 
+        $books = [];
         foreach ($results as $result) {
             $books[] = new Book(
                 $result['name'],
                 $result['author'],
                 \DateTimeImmutable::createFromFormat('Y-m-d', $result['published']),
-                
+                $result['id']
             );
         }
-    
-        
+
         return $books;
     }
 }
-

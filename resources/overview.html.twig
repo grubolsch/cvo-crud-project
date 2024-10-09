@@ -23,9 +23,9 @@
         {% for book in books %}
             <tr>
                 <td>{{ book.id }}</td>
-                <td>{{ book.title }}</td>
+                <td>{{ book.name }}</td>
                 <td>{{ book.author }}</td>
-                <td>{{ book.published }}</td>
+                <td>{{ book.published|date('d-m-Y') }}</td>
                 <td>
                     <a href="?page=edit&id={{ book.id}}" class="btn btn-sm btn-warning">Edit</a>
                     <form action="?page=delete" method="POST" class="d-inline">
