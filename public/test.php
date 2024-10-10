@@ -1,11 +1,14 @@
 <?php
-class Carbrand {
+
+class Carbrand
+{
     private string $name;
     private string $color;
     private string $logo;
     private int $numberOfCars;
 
-    public function __construct(string $name, string $color, string $logo, int $numberOfCars) {
+    public function __construct(string $name, string $color, string $logo, int $numberOfCars)
+    {
         $this->name = $name;
         $this->color = $color;
         $this->logo = $logo;
@@ -29,10 +32,12 @@ $peugot = new Carbrand('peugot', 'red', 'a.png', 5);
 $peugot->date = 'gisteren';
 $peugot->numberOfCars = -10000;
 
-class Car {
+class Car
+{
     public $color;
 
-    function whatColor() {
+    public function whatColor()
+    {
         return $this->color;
     }
 }
