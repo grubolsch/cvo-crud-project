@@ -4,7 +4,7 @@ namespace Src\Model;
 
 use DateTimeImmutable;
 
-class Book
+class Book implements CrudInterface
 {
     private ?int $id = null;
     private string $name;
