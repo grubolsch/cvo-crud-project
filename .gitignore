@@ -1,3 +1,4 @@
 vendor/
 config.php
 storage/
+.php-cs-fixer.cache
