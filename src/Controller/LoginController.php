@@ -19,6 +19,9 @@ class LoginController implements HtmlControllerInterface
     {
         //@todo finish code
 
+        var_dump($_POST);
+        exit;
+
         $template = $this->twig->load('login.html.twig');
         $template->display();
     }

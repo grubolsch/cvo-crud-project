@@ -1,0 +1,21 @@
+Login
+- variable aanmaken voor username / password (optioneel)
+- is username / password ingevuld
+    - Laad user op basis van username
+    + functie toevoegen in User (selectByUsername())
+    - Username bestaat niet
+        = inloggen niet gelukt (mag in een die() )
+    - username bestaat wel
+        - check met password_verify() of wachtwoord klopt
+        - wachtwoord klopt niet 
+            = inloggen niet gelukt (mag in een die() )
+        - wachtwoord klopt wel
+            - user id opslaan in $_SESSION
+            - redirect naar overview
+
+Register
+    - username ophalen 
+    - Check if password en password2 overeenkomen
+    - Maak een nieuwe user object aanmaken
+    - ->save()
+    - OF redirect naar login OF naar overview
