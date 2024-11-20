@@ -13,22 +13,13 @@ $twig = new \Twig\Environment($loader, [
     'debug' => true
 ]);
 
-$pdo = new PDO('mysql:host=localhost;dbname=cvo_pdo', 'root', 'root');
+$pdo = new PDO('mysql:host=localhost;dbname=XXX', 'root', 'root');
 
-switch ($_GET['page'] ?? 'login') {
-    case 'create':
-    case 'edit':
-        $controller = new CreateController($twig, $pdo);
-        break;
+switch ($_GET['page'] ?? 'overview') {
     case 'overview':
+    default:
         $controller = new OverviewController($twig, $pdo);
         break;
-    case 'register':
-        $controller = new RegisterController($twig, $pdo);
-        break;
-    case 'login':
-    default:
-        $controller = new LoginController($twig, $pdo);
 }
 
 $controller->render();

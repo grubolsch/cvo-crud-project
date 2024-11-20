@@ -22,13 +22,7 @@ class OverviewController implements HtmlControllerInterface
 
     public function render(): void
     {
-        $user = new User('koen', 'test');
-        $user->save($this->pdo);
-
-
-        $books = Book::selectAll($this->pdo);
-
         $template = $this->twig->load('overview.html.twig');
-        $template->display(['books' => $books]);
+        $template->display();
     }
 }
